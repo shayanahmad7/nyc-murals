@@ -1,0 +1,23 @@
+# Ignore node_modules but track package.json and package-lock.json
+node_modules/
+
+# Ignore build files
+.next/
+out/
+build/
+
+# Environment files
+.env
+.env.*
+
+# Ignore other common files
+.DS_Store
+*.log
+
+# Allow config files
+!.eslintrc.json
+!next-env.d.ts
+!next.config.ts
+!tailwind.config.ts
+!tsconfig.json
+!postcss.config.mjs
