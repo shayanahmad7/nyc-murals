@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { useState, useRef, useEffect } from "react"
-import { motion, useMotionValue, useAnimation } from "framer-motion"
+import { motion, useMotionValue } from "framer-motion"
 import MuralDetail from "@/components/mural-detail"
 import { murals as initialMurals, Mural } from "@/data/murals"
 import { Share2 } from 'lucide-react'
@@ -27,7 +27,6 @@ export default function ExploreMurals() {
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
-  // const indicatorControls = useAnimation()
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -40,9 +39,7 @@ export default function ExploreMurals() {
   }, [selectedMural])
 
   const handleDragStart = () => {
-    // if (indicatorState.show) {
-    //   setIndicatorState({ show: true, blur: false })
-    // }
+    
   }
 
   const handleClick = () => {
@@ -127,9 +124,6 @@ export default function ExploreMurals() {
         </Link>
       </div>
 
-      {/* {indicatorState.blur && (
-        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30" />
-      )} */}
       {showIndicator && (
         <div 
           className="fixed inset-0 z-40 flex items-center justify-center bg-black/30 backdrop-blur-sm cursor-pointer"
@@ -183,10 +177,9 @@ export default function ExploreMurals() {
             whileHover={{ scale: 1.1, zIndex: 10 }}
             whileTap={{ scale: 0.95 }}
             onClick={(e) => {
-              // if (!indicatorState.blur) {
                 e.stopPropagation()
                 setSelectedMural(mural)
-              // }
+              
             }}
           >
             <div className="w-full h-full rounded-lg overflow-hidden border-4 border-white/90 shadow-lg bg-white flex flex-col">
