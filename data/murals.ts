@@ -7,6 +7,7 @@ export interface Mural {
   location: string
   year: string
   comments: Array<{ author: string; text: string }>
+  link: string
 }
 
 export const murals: Mural[] = [
@@ -26,7 +27,8 @@ export const murals: Mural[] = [
     year: "Ongoing",
     comments: [
       { author: "Sarah M.", text: "Always exciting to see what new artwork appears here!" }
-    ]
+    ],
+    link: "https://www.goldmansachs.com/our-firm/history/moments/2008-bowery-mural.html"
   },
   {
     id: 2,
@@ -42,7 +44,9 @@ export const murals: Mural[] = [
     year: "Ongoing since 2014",
     comments: [
       { author: "Alex B.", text: "Love how this project combines art with environmental awareness." }
-    ]
+    ],
+    link: "https://www.audubon.org/amp"
+    
   },
   {
     id: 3,
@@ -57,7 +61,8 @@ export const murals: Mural[] = [
     year: "1986",
     comments: [
       { author: "Emma L.", text: "A true NYC classic. Haring's work never gets old." }
-    ]
+    ],
+
   },
   {
     id: 4,
@@ -73,7 +78,8 @@ export const murals: Mural[] = [
     year: "Established 1980, ongoing",
     comments: [
       { author: "Carlos R.", text: "The history of NYC street art is alive here. Amazing to see it evolve over the years." }
-    ]
+    ],
+
   },
   {
     id: 5,

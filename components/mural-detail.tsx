@@ -3,7 +3,7 @@
 import { useState } from "react"
 import Image from 'next/image'
 import { motion } from "framer-motion"
-import { X, Facebook, Twitter, Send, ChevronLeft, ChevronRight } from 'lucide-react'
+import { X, Facebook, Twitter, Send, ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -135,6 +135,18 @@ export default function MuralDetail({ mural, onClose, updateComments }: MuralDet
                 <h3 className="font-semibold mb-2 text-gray-300">Year</h3>
                 <p className="text-gray-400">{mural.year}</p>
               </div>
+            </div>
+
+            <div className="mb-6">
+              <a
+                href={mural.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-blue-400 hover:text-blue-300"
+              >
+                <ExternalLink className="w-4 h-4 mr-2" />
+                Learn more about this mural
+              </a>
             </div>
 
             {mural.images.length > 1 && (
