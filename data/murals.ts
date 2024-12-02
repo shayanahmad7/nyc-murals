@@ -154,8 +154,8 @@ export const murals: Mural[] = [
   },
   {
     id: 9,
-    title: "Tunnel of Dreams",
-    artist: "Dasic Fernández",
+    title: "Big City of Dreams",
+    artist: "Tristan Eaton",
     images: [
       "/mural-images/9/9-1.jpg",
       "/mural-images/9/9-2.jpg",
@@ -167,13 +167,13 @@ export const murals: Mural[] = [
       "/mural-images/9/9-8.jpg",
       "/mural-images/9/9-9.jpg",
     ],
-    description: "A vibrant mural depicting a fantastical underwater scene with sea creatures and human figures.",
-    location: "Harlem, Manhattan",
-    year: "2021",
+    description: "A colorful mural painted by street artist Tristan Eaton, featuring his signature patchwork style with intricate details representing the vibrant energy of New York City.",
+    location: "Broome Street near Centre Market Place, SoHo, Manhattan",
+    year: "2015",
     comments: [
-      { author: "Maya R.", text: "The colors in this mural are absolutely mesmerizing!" }
+      { author: "Maya R.", text: "Eaton's work never fails to impress. This mural captures the essence of the city beautifully!" }
     ],
-    link: "https://www.dasic.com/tunnel-of-dreams"
+    link: "https://viewing.nyc/check-out-tristan-eatons-colorful-big-city-of-dreams-mural-in-soho/"
   },
   {
     id: 10,
@@ -238,5 +238,117 @@ export const murals: Mural[] = [
       { author: "Freedom Fan", text: "Kobra's take on Lady Liberty is both modern and respectful. Love it!" }
     ],
     link: "https://streetartcities.com/cities/newyork/markers/15379"
-  }
+  },
+  {
+    id: 14,
+    title: "Fight for Street Art",
+    artist: "Eduardo Kobra",
+    images: [
+    "/mural-images/14/14-1.jpg",
+    "/mural-images/14/14-2.jpg"
+    ],
+    description: "A vibrant mural featuring Andy Warhol and Basquiat, two pop icons, sharing the hashtag Fight for Street Art.",
+    location: "147 Bedford Avenue, Brooklyn",
+    year: "2018",
+    comments: [
+    { author: "Pop Art Fan", text: "Seeing Warhol and Basquiat together is incredible. Kobra's style really brings them to life!" }
+    ],
+    link: "https://artsandculture.google.com/story/9-amazing-street-art-murals-in-new-york/HAUxIVumcQkQtw?hl=en"
+    },
+    {
+    id: 15,
+    title: "Frida Kahlo and Diego Rivera",
+    artist: "Eduardo Kobra",
+    images: [
+    "/mural-images/15/15-1.jpg",
+    "/mural-images/15/15-2.jpg"
+    ],
+    description: "A colorful mural celebrating the Mexican artists Frida Kahlo and Diego Rivera.",
+    location: "366 Prospect Pl, Brooklyn",
+    year: "2018",
+    comments: [
+    { author: "Art Historian", text: "Kobra's unique style brings these iconic artists to life in such a vibrant way!" }
+    ],
+    link: "https://artsandculture.google.com/story/9-amazing-street-art-murals-in-new-york/HAUxIVumcQkQtw?hl=en"
+    },
+    {
+    id: 16,
+    title: "Big Pun Memorial Mural",
+    artist: "Tats Cru",
+    images: [
+    "/mural-images/16/16-1.jpg",
+    "/mural-images/16/16-2.jpg"
+    ],
+    description: "A tribute mural to Big Pun, celebrating the hip hop's first Latin platinum artist.",
+    location: "910 Rogers Place, Bronx",
+    year: "Ongoing (updated annually)",
+    comments: [
+    { author: "Hip Hop Fan", text: "A must-see for any fan of Big Pun and hip hop culture." }
+    ],
+    link: "https://artsandculture.google.com/story/9-amazing-street-art-murals-in-new-york/HAUxIVumcQkQtw?hl=en"
+    },
+    {
+    id: 17,
+    title: "Welling Court Mural Project",
+    artist: "Various Artists",
+    images: [
+    "/mural-images/17/17-1.jpg",
+    "/mural-images/17/17-2.jpg"
+    ],
+    description: "An outdoor gallery of street art murals by artists from around the world, featuring over 150 murals.",
+    location: "11-98 Welling Court, Astoria, Queens",
+    year: "Established 2009, ongoing",
+    comments: [
+    { author: "Street Art Enthusiast", text: "One of the best spots to see a diverse range of street art styles in NYC!" }
+    ],
+    link: "https://secretnyc.co/nyc-street-art/"
+    },
+    {
+    id: 18,
+    title: "Houston Bowery Wall Mural",
+    artist: "Various Artists (rotating)",
+    images: [
+    "/mural-images/18/18-1.jpg",
+    "/mural-images/18/18-2.jpg"
+    ],
+    description: "A famous wall that features rotating murals by various street artists, originally started with a Keith Haring piece.",
+    location: "76 E. Houston St., Manhattan",
+    year: "Ongoing",
+    comments: [
+    { author: "Art Lover", text: "It's always exciting to see what new artwork appears on this iconic wall!" }
+    ],
+    link: "https://artsandculture.google.com/story/9-amazing-street-art-murals-in-new-york/HAUxIVumcQkQtw?hl=en"
+    },
+    {
+    id: 19,
+    title: "Coney Art Walls",
+    artist: "Various Artists",
+    images: [
+    "/mural-images/19/19-1.jpg",
+    "/mural-images/19/19-2.jpg"
+    ],
+    description: "An outdoor museum of street art featuring murals by leading street and graffiti artists.",
+    location: "3050 Stillwell Ave., Coney Island, Brooklyn",
+    year: "2015-2018",
+    comments: [
+    { author: "Beach Goer", text: "These murals add such vibrant energy to the Coney Island experience!" }
+    ],
+    link: "https://secretnyc.co/nyc-street-art/"
+    },
+    {
+    id: 20,
+    title: "Ecosystem Restoration Mural",
+    artist: "Carlos Alberto",
+    images: [
+    "/mural-images/20/20-1.jpg",
+    "/mural-images/20/20-2.jpg"
+    ],
+    description: "A 12,800 square foot mural focusing on ecosystem restoration and tree equity, featuring a woman embracing a tree surrounded by jungle elements.",
+    location: "Javits Center, 11th Avenue between 39th and 40th Street, Manhattan",
+    year: "2024",
+    comments: [
+    { author: "Environmental Activist", text: "This mural beautifully captures the importance of ecosystem restoration in our urban environments." }
+    ],
+    link: "https://www.decadeonrestoration.org/massive-ecosystem-restoration-mural-appears-new-york-city-calls-leaders-act-nature"
+    }
 ];
