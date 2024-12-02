@@ -40,10 +40,9 @@ export default function ExploreMurals() {
   }, [selectedMural])
 
   const handleDragStart = () => {
-    if (showIndicator) {
-      indicatorControls.start({ opacity: 0, scale: 0.5, transition: { duration: 0.5 } })
-      setTimeout(() => setShowIndicator(false), 500)
-    }
+    // if (indicatorState.show) {
+    //   setIndicatorState({ show: true, blur: false })
+    // }
   }
 
   const handleClick = () => {
@@ -128,8 +127,14 @@ export default function ExploreMurals() {
         </Link>
       </div>
 
+      {/* {indicatorState.blur && (
+        <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30" />
+      )} */}
       {showIndicator && (
-        <div className="fixed inset-0 flex items-center justify-center z-40 pointer-events-none">
+        <div 
+          className="fixed inset-0 z-40 flex items-center justify-center bg-black/30 backdrop-blur-sm cursor-pointer"
+          onClick={handleClick}
+        >
           <motion.div
             initial={{ scale: 0.9, rotate: -5 }}
             animate={{ 
@@ -173,15 +178,15 @@ export default function ExploreMurals() {
               top: `${mural.y}px`,
               width: '200px',
               height: '250px',
-              pointerEvents: showIndicator ? 'none' : 'auto'
+              pointerEvents: 'auto'
             }}
             whileHover={{ scale: 1.1, zIndex: 10 }}
             whileTap={{ scale: 0.95 }}
             onClick={(e) => {
-              if (!showIndicator) {
+              // if (!indicatorState.blur) {
                 e.stopPropagation()
                 setSelectedMural(mural)
-              }
+              // }
             }}
           >
             <div className="w-full h-full rounded-lg overflow-hidden border-4 border-white/90 shadow-lg bg-white flex flex-col">
