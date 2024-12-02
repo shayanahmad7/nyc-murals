@@ -436,8 +436,7 @@ export const murals: Mural[] = [
       title: "Bad Brains",
       artist: "Shepard Fairey",
       images: [
-        "/mural-images/26/26-1.jpg",
-        "/mural-images/26/26-2.jpg"
+        "/mural-images/26/26-1.jpg"
       ],
       description: "A vibrant mural celebrating the punk band Bad Brains, showcasing Fairey's dynamic artistry.",
       location: "Bleecker Street and Bowery, Manhattan",
