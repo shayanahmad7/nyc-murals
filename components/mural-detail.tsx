@@ -1,8 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import Image from 'next/image'
 import { motion } from "framer-motion"
-import { X, Share2, Facebook, Twitter, Send, ChevronLeft, ChevronRight } from 'lucide-react'
+import { X, Facebook, Twitter, Send, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -83,9 +84,11 @@ export default function MuralDetail({ mural, onClose, updateComments }: MuralDet
           onClick={(e) => e.stopPropagation()}
         >
           <div className="relative">
-            <img
+            <Image
               src={mural.images[currentImageIndex]}
               alt={`${mural.title} - Image ${currentImageIndex + 1}`}
+              width={800}
+              height={400}
               className="w-full h-[400px] object-cover"
             />
             <Button
@@ -137,10 +140,12 @@ export default function MuralDetail({ mural, onClose, updateComments }: MuralDet
             {mural.images.length > 1 && (
               <div className="flex space-x-2 mb-6 overflow-x-auto">
                 {mural.images.map((image, index) => (
-                  <img
+                  <Image
                     key={index}
                     src={image}
                     alt={`${mural.title} - Thumbnail ${index + 1}`}
+                    width={80}
+                    height={80}
                     className={`w-20 h-20 object-cover cursor-pointer ${index === currentImageIndex ? 'border-2 border-white' : ''}`}
                     onClick={() => setCurrentImageIndex(index)}
                   />

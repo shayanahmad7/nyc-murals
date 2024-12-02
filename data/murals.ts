@@ -17,7 +17,9 @@ export const murals: Mural[] = [
     images: [
       "/mural-images/1/1-1.jpg",
       "/mural-images/1/1-2.jpg",
-      "/mural-images/1/1-3.jpg"
+      "/mural-images/1/1-3.jpg",
+      "/mural-images/1/1-4.jpg",
+      "mural-images/1/1-5.jpg"
     ],
     description: "The Bowery Mural is a rotating outdoor exhibition space, featuring works by renowned street artists.",
     location: "Houston Street and Bowery, Manhattan",
@@ -110,7 +112,11 @@ export const murals: Mural[] = [
     images: [
       "/mural-images/7/7-1.jpg",
       "/mural-images/7/7-2.jpg",
-      "/mural-images/7/7-3.jpg"
+      "/mural-images/7/7-3.jpg",
+      "/mural-images/7/7-4.jpg",
+      "/mural-images/7/7-5.jpg",
+      "/mural-images/7/7-6.jpg",
+      "/mural-images/7/7-7.jpg",
     ],
     description: "An outdoor gallery of street art murals by artists from around the world.",
     location: "Troutman Street and St. Nicholas Avenue, Bushwick, Brooklyn",
@@ -125,7 +131,10 @@ export const murals: Mural[] = [
     artist: "Eduardo Kobra",
     images: [
       "/mural-images/8/8-1.jpg",
-      "/mural-images/8/8-2.jpg"
+      "/mural-images/8/8-2.jpg",
+      "/mural-images/8/8-3.jpg",
+      "/mural-images/8/8-4.jpg",
+      "/mural-images/8/8-5.jpg",
     ],
     description: "A vibrant, colorful reinterpretation of Mount Rushmore featuring indigenous faces.",
     location: "188 Lafayette Street, SoHo",
@@ -140,7 +149,14 @@ export const murals: Mural[] = [
     artist: "Dasic Fernández",
     images: [
       "/mural-images/9/9-1.jpg",
-      "/mural-images/9/9-2.jpg"
+      "/mural-images/9/9-2.jpg",
+      "/mural-images/9/9-3.jpg",
+      "/mural-images/9/9-4.jpg",
+      "/mural-images/9/9-5.jpg",
+      "/mural-images/9/9-6.jpg",
+      "/mural-images/9/9-7.jpg",
+      "/mural-images/9/9-8.jpg",
+      "/mural-images/9/9-9.jpg",
     ],
     description: "A vibrant mural depicting a fantastical underwater scene with sea creatures and human figures.",
     location: "Harlem, Manhattan",

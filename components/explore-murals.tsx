@@ -1,8 +1,9 @@
 "use client"
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useRef, useEffect } from "react"
-import { motion, useMotionValue, useTransform, useSpring, useAnimation } from "framer-motion"
+import { motion, useMotionValue, useAnimation } from "framer-motion"
 import MuralDetail from "@/components/mural-detail"
 import { murals as initialMurals, Mural } from "@/data/murals"
 import { Share2 } from 'lucide-react'
@@ -22,30 +23,11 @@ export default function ExploreMurals() {
   )
   const [selectedMural, setSelectedMural] = useState<Mural | null>(null)
   const [showIndicator, setShowIndicator] = useState(true)
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
   const constraintsRef = useRef(null)
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
-  const springConfig = { damping: 20, stiffness: 100 }
-  const scaleX = useSpring(useTransform(x, [-1500, 0, 1500], [1.5, 1, 1.5]), springConfig)
-  const scaleY = useSpring(useTransform(y, [-1500, 0, 1500], [1.5, 1, 1.5]), springConfig)
-
   const indicatorControls = useAnimation()
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight
-      })
-    }
-    
-    handleResize()
-    window.addEventListener('resize', handleResize)
-    
-    return () => window.removeEventListener('resize', handleResize)
-  }, [])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -203,9 +185,11 @@ export default function ExploreMurals() {
             }}
           >
             <div className="w-full h-full rounded-lg overflow-hidden border-4 border-white/90 shadow-lg bg-white flex flex-col">
-              <img
+              <Image
                 src={mural.images[0]}
                 alt={mural.title}
+                width={140}
+                height={105}
                 className="w-full h-3/4 object-cover"
               />
               <div className="h-1/4 p-2 flex items-center justify-center">
