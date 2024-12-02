@@ -1,46 +1,26 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { motion } from "framer-motion"
-import { X, Share2, Facebook, Twitter, Send } from 'lucide-react'
+import { X, Share2, Facebook, Twitter, Send, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { addComment } from "@/app/actions"
-import { useRouter } from "next/navigation"
-
-interface Comment {
-  author: string
-  text: string
-}
-
-interface Mural {
-  id: number
-  title: string
-  artist: string
-  image: string
-  description: string
-  location: string
-  year: string
-  comments: Comment[]
-}
+import { Mural } from "@/data/murals"
 
 interface MuralDetailProps {
   mural: Mural
   onClose: () => void
+  updateComments: (muralId: number, newComment: { author: string; text: string }) => void
 }
 
-export default function MuralDetail({ mural, onClose }: MuralDetailProps) {
+export default function MuralDetail({ mural, onClose, updateComments }: MuralDetailProps) {
   const [author, setAuthor] = useState("")
   const [comment, setComment] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
-  const [localComments, setLocalComments] = useState<Comment[]>(mural.comments)
-  const router = useRouter()
-
-  useEffect(() => {
-    setLocalComments(mural.comments)
-  }, [mural.comments])
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const handleShare = (platform: string) => {
     const url = `https://nyc-mural-explorer.com/mural/${mural.id}`
@@ -67,16 +47,23 @@ export default function MuralDetail({ mural, onClose }: MuralDetailProps) {
     try {
       const result = await addComment(mural.id, author, comment)
       if (result.success) {
-        setLocalComments([...localComments, { author, text: comment }])
+        updateComments(mural.id, { author, text: comment })
         setAuthor("")
         setComment("")
-        router.refresh()
       }
     } catch (error) {
       console.error('Error posting comment:', error)
     } finally {
       setIsSubmitting(false)
     }
+  }
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % mural.images.length)
+  }
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + mural.images.length) % mural.images.length)
   }
 
   return (
@@ -97,8 +84,8 @@ export default function MuralDetail({ mural, onClose }: MuralDetailProps) {
         >
           <div className="relative">
             <img
-              src={mural.image}
-              alt={mural.title}
+              src={mural.images[currentImageIndex]}
+              alt={`${mural.title} - Image ${currentImageIndex + 1}`}
               className="w-full h-[400px] object-cover"
             />
             <Button
@@ -109,6 +96,26 @@ export default function MuralDetail({ mural, onClose }: MuralDetailProps) {
             >
               <X className="h-6 w-6" />
             </Button>
+            {mural.images.length > 1 && (
+              <>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white hover:bg-white/20"
+                  onClick={(e) => { e.stopPropagation(); prevImage(); }}
+                >
+                  <ChevronLeft className="h-6 w-6" />
+                </Button>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white hover:bg-white/20"
+                  onClick={(e) => { e.stopPropagation(); nextImage(); }}
+                >
+                  <ChevronRight className="h-6 w-6" />
+                </Button>
+              </>
+            )}
           </div>
 
           <div className="p-6">
@@ -127,10 +134,24 @@ export default function MuralDetail({ mural, onClose }: MuralDetailProps) {
               </div>
             </div>
 
+            {mural.images.length > 1 && (
+              <div className="flex space-x-2 mb-6 overflow-x-auto">
+                {mural.images.map((image, index) => (
+                  <img
+                    key={index}
+                    src={image}
+                    alt={`${mural.title} - Thumbnail ${index + 1}`}
+                    className={`w-20 h-20 object-cover cursor-pointer ${index === currentImageIndex ? 'border-2 border-white' : ''}`}
+                    onClick={() => setCurrentImageIndex(index)}
+                  />
+                ))}
+              </div>
+            )}
+
             <div className="border-t border-gray-700 pt-6">
               <h3 className="font-semibold mb-4 text-gray-300">Comments</h3>
               
-              {localComments.map((comment, index) => (
+              {mural.comments.map((comment, index) => (
                 <div key={index} className="flex gap-4 mb-4">
                   <Avatar>
                     <AvatarFallback className="bg-gray-600 text-white">

@@ -3,22 +3,10 @@
 import Link from 'next/link'
 import { useState, useRef, useEffect } from "react"
 import { motion, useMotionValue, useTransform, useSpring, useAnimation } from "framer-motion"
-import { Drawer } from "vaul"
 import MuralDetail from "@/components/mural-detail"
-import { murals } from "@/data/murals"
-import { Share2, MousePointer } from 'lucide-react'
+import { murals as initialMurals, Mural } from "@/data/murals"
+import { Share2 } from 'lucide-react'
 import { Button } from "@/components/ui/button"
-
-interface Mural {
-  id: number
-  title: string
-  artist: string
-  image: string
-  description: string
-  location: string
-  year: string
-  comments: Array<{ author: string; text: string }>
-}
 
 interface InfiniteMural extends Mural {
   x: number
@@ -26,6 +14,12 @@ interface InfiniteMural extends Mural {
 }
 
 export default function ExploreMurals() {
+  const [murals, setMurals] = useState<Mural[]>(() => 
+    initialMurals.map(mural => ({
+      ...mural,
+      images: Array.isArray(mural.images) ? mural.images : [mural.images]
+    }))
+  )
   const [selectedMural, setSelectedMural] = useState<Mural | null>(null)
   const [showIndicator, setShowIndicator] = useState(true)
   const [windowSize, setWindowSize] = useState({ width: 0, height: 0 })
@@ -114,33 +108,35 @@ export default function ExploreMurals() {
 
   const infiniteGrid = createInfiniteGrid()
 
+  const updateMuralComments = (muralId: number, newComment: { author: string; text: string }) => {
+    setMurals(prevMurals => 
+      prevMurals.map(mural => 
+        mural.id === muralId
+          ? { ...mural, comments: [...mural.comments, newComment] }
+          : mural
+      )
+    )
+  }
+
   return (
     <div className="h-screen bg-black relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-purple-900 via-pink-900 to-red-900 opacity-30"></div>
       
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
-          <motion.div
+          <div
             key={i}
-            className="absolute rounded-full mix-blend-screen filter blur-xl"
+            className="absolute rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-float"
             style={{
-              background: `radial-gradient(circle, rgba(${Math.random() * 255},${Math.random() * 255},${Math.random() * 255},0.8) 0%, rgba(0,0,0,0) 70%)`,
+              backgroundColor: `hsl(${Math.random() * 360}, 70%, 50%)`,
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
               width: `${Math.random() * 300 + 50}px`,
               height: `${Math.random() * 300 + 50}px`,
-              x: Math.random() * (windowSize.width || 1000),
-              y: Math.random() * (windowSize.height || 1000),
+              animationDuration: `${Math.random() * 10 + 10}s`,
+              animationDelay: `${Math.random() * 5}s`,
             }}
-            animate={{
-              x: [0, Math.random() * 100 - 50],
-              y: [0, Math.random() * 100 - 50],
-              scale: [1, Math.random() * 0.5 + 0.5],
-            }}
-            transition={{
-              duration: Math.random() * 10 + 10,
-              repeat: Infinity,
-              repeatType: "reverse",
-            }}
-          />
+          ></div>
         ))}
       </div>
 
@@ -150,11 +146,9 @@ export default function ExploreMurals() {
         </Link>
       </div>
 
-      <Drawer.Root open={showIndicator} onOpenChange={setShowIndicator}>
-        <Drawer.Overlay className="fixed inset-0 bg-black/30 backdrop-blur-sm z-30" />
-        <Drawer.Content className="fixed inset-0 flex items-center justify-center z-40 pointer-events-none">
-          <motion.div 
-            className="bg-purple-900 text-white rounded-full p-8 shadow-lg w-72 h-72 flex flex-col items-center justify-center cursor-pointer pointer-events-auto"
+      {showIndicator && (
+        <div className="fixed inset-0 flex items-center justify-center z-40 pointer-events-none">
+          <motion.div
             initial={{ scale: 0.9, rotate: -5 }}
             animate={{ 
               scale: [0.9, 1.1, 0.9],
@@ -165,29 +159,17 @@ export default function ExploreMurals() {
               repeat: Infinity,
               ease: "easeInOut"
             }}
-            onClick={handleClick}
+            className="bg-white bg-opacity-20 text-white rounded-full p-8 shadow-lg backdrop-blur-md"
           >
             <p className="text-center font-bold text-2xl mb-2">
               Drag to Explore
             </p>
-            <p className="text-center text-2xl mb-4">
+            <p className="text-center text-lg">
               Tap to Expand
             </p>
-            <motion.div
-              animate={{
-                y: [-10, 10, -10]
-              }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <MousePointer size={48} className="text-white" />
-            </motion.div>
           </motion.div>
-        </Drawer.Content>
-      </Drawer.Root>
+        </div>
+      )}
 
       <motion.div
         ref={constraintsRef}
@@ -222,7 +204,7 @@ export default function ExploreMurals() {
           >
             <div className="w-full h-full rounded-lg overflow-hidden border-4 border-white/90 shadow-lg bg-white flex flex-col">
               <img
-                src={mural.image}
+                src={mural.images[0]}
                 alt={mural.title}
                 className="w-full h-3/4 object-cover"
               />
@@ -235,7 +217,11 @@ export default function ExploreMurals() {
       </motion.div>
 
       {selectedMural && (
-        <MuralDetail mural={selectedMural} onClose={() => setSelectedMural(null)} />
+        <MuralDetail 
+          mural={murals.find(m => m.id === selectedMural.id) || selectedMural} 
+          onClose={() => setSelectedMural(null)} 
+          updateComments={updateMuralComments}
+        />
       )}
 
       <div className="absolute bottom-4 left-4 z-20">
