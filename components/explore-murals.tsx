@@ -27,7 +27,7 @@ export default function ExploreMurals() {
   const x = useMotionValue(0)
   const y = useMotionValue(0)
 
-  const indicatorControls = useAnimation()
+  // const indicatorControls = useAnimation()
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
