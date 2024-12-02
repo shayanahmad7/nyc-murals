@@ -350,5 +350,165 @@ export const murals: Mural[] = [
     { author: "Environmental Activist", text: "This mural beautifully captures the importance of ecosystem restoration in our urban environments." }
     ],
     link: "https://www.decadeonrestoration.org/massive-ecosystem-restoration-mural-appears-new-york-city-calls-leaders-act-nature"
+    },
+    {
+      id: 21,
+      title: "Rice Terraces",
+      artist: "Dasic Fernández",
+      images: [
+        "/mural-images/21/21-1.jpg",
+        "/mural-images/21/21-2.jpg"
+      ],
+      description: "A vibrant mural inspired by the rice paddy fields of China, transforming Doyers Street into a vivid corridor that attracts street art enthusiasts.",
+      location: "Doyers Street, Chinatown, Manhattan",
+      year: "2021",
+      comments: [
+        { author: "Art Aficionado", text: "The colors and design bring such life to this historic street!" }
+      ],
+      link: "https://gothamtogo.com/rice-terraces-by-dasic-fernandez-the-2021-doyers-street-nyc-dot-asphalt-art-activations-street-mural/"
+    },
+    {
+      id: 22,
+      title: "We <3 New York",
+      artist: "Eduardo Kobra",
+      images: [
+        "/mural-images/22/22-1.jpg",
+        "/mural-images/22/22-2.jpg"
+      ],
+      description: "A colorful mural by Brazilian artist Eduardo Kobra, celebrating the spirit and resilience of New York City.",
+      location: "Chelsea, Manhattan",
+      year: "2018",
+      comments: [
+        { author: "NYC Lover", text: "Kobra's tribute to the city is both vibrant and heartwarming." }
+      ],
+      link: "https://www.nychummingbird.com/kobra-murals-in-nyc/"
+    },
+    {
+      id: 23,
+      title: "Ziggy Stardust",
+      artist: "Eduardo Kobra",
+      images: [
+        "/mural-images/23/23-1.jpg",
+        "/mural-images/23/23-2.jpg"
+      ],
+      description: "A tribute to David Bowie's iconic alter ego, Ziggy Stardust, showcasing Kobra's signature geometric style.",
+      location: "837 Jersey Avenue, Jersey City, NJ",
+      year: "2016",
+      comments: [
+        { author: "Music Fan", text: "A stunning homage to a music legend." }
+      ],
+      link: "https://www.eduardokobra.com/projeto/31/ziggy-stardust"
+    },
+    {
+      id: 24,
+      title: "Audrey Hepburn",
+      artist: "Tristan Eaton",
+      images: [
+        "/mural-images/24/24-1.jpg",
+        "/mural-images/24/24-2.jpg"
+      ],
+      description: "A captivating mural of Audrey Hepburn, blending realism with abstract elements in Eaton's distinctive style.",
+      location: "Little Italy, Manhattan",
+      year: "2013",
+      comments: [
+        { author: "Film Buff", text: "Eaton beautifully captures Hepburn's elegance." }
+      ],
+      link: "https://blog.vandalog.com/2013/09/08/tristan-eaton-paints-audrey-hepburn-in-little-italy/"
+    },
+    {
+      id: 25,
+      title: "Blondie",
+      artist: "Shepard Fairey",
+      images: [
+        "/mural-images/25/25-1.jpg",
+        "/mural-images/25/25-2.jpg"
+      ],
+      description: "A mural honoring the iconic band Blondie, featuring bold colors and Fairey's signature style.",
+      location: "Bleecker Street and Bowery, Manhattan",
+      year: "2017",
+      comments: [
+        { author: "Punk Rock Enthusiast", text: "A fantastic tribute to a legendary band." }
+      ],
+      link: "https://madhattersnyc.com/blog/best-street-art-nyc"
+    },
+    {
+      id: 26,
+      title: "Bad Brains",
+      artist: "Shepard Fairey",
+      images: [
+        "/mural-images/26/26-1.jpg",
+        "/mural-images/26/26-2.jpg"
+      ],
+      description: "A vibrant mural celebrating the punk band Bad Brains, showcasing Fairey's dynamic artistry.",
+      location: "Bleecker Street and Bowery, Manhattan",
+      year: "2022",
+      comments: [
+        { author: "Music Lover", text: "An energetic piece that captures the band's spirit." }
+      ],
+      link: "https://madhattersnyc.com/blog/best-street-art-nyc"
+    },
+    {
+      id: 27,
+      title: "Following in the Footsteps of Alexander Hamilton",
+      artist: "Hugo Bastidas",
+      images: [
+        "/mural-images/27/27-1.jpg",
+        "/mural-images/27/27-2.jpg"
+      ],
+      description: "A mural celebrating the legacy of Alexander Hamilton, created in collaboration with local schools and the community.",
+      location: "Alexander Hamilton Playground, Harlem, Manhattan",
+      year: "2019",
+      comments: [
+        { author: "History Buff", text: "A beautiful homage to one of America's founding fathers." }
+      ],
+      link: "https://www.cityarts.org/following-the-footsteps-of-alexander-hamilton"
+    },
+    {
+      id: 28,
+      title: "Alice on the Wall",
+      artist: "CITYarts",
+      images: [
+        "/mural-images/28/28-1.jpg",
+        "/mural-images/28/28-2.jpg"
+      ],
+      description: "A mural inspired by 'Alice in Wonderland,' encouraging students to return to school post-9/11.",
+      location: "Washington Market Park, Tribeca, Manhattan",
+      year: "2002",
+      comments: [
+        { author: "Local Resident", text: "A whimsical piece that brings joy to the neighborhood." }
+      ],
+      link: "https://www.cityarts.org/alice-on-the-wall"
+    },
+    {
+      id: 29,
+      title: "Celebrating the Heroes of Our City",
+      artist: "Janusz Gilewicz",
+      images: [
+        "/mural-images/29/29-1.jpg",
+        "/mural-images/29/29-2.jpg"
+      ],
+      description: "A mural honoring the heroes of New York City, located in the Henry M. Jackson Playground.",
+      location: "Henry M. Jackson Playground, Lower East Side, Manhattan",
+      year: "2001",
+      comments: [
+        { author: "Community Member", text: "A touching tribute to our city's heroes." }
+      ],
+      link: "https://www.cityarts.org/heroes-of-our-city-restoration-2"
+    },
+    {
+      id: 30,
+      title: "Past Forward",
+      artist: "Kristin Holmes-Linder",
+      images: [
+        "/mural-images/30/30-1.jpg",
+        "/mural-images/30/30-2.jpg"
+      ],
+      description: "A mural fostering intergenerational relationships between senior citizens and local youth.",
+      location: "JASA Club 76, Upper West Side, Manhattan",
+      year: "2019",
+      comments: [
+        { author: "Senior Participant", text: "A wonderful project that bridges generations." }
+      ],
+      link: "https://www.city"
     }
 ];
