@@ -171,8 +171,8 @@ export default function ExploreMurals() {
             style={{
               left: `${mural.x}px`,
               top: `${mural.y}px`,
-              width: '140px',
-              height: '180px',
+              width: '200px',
+              height: '250px',
               pointerEvents: showIndicator ? 'none' : 'auto'
             }}
             whileHover={{ scale: 1.1, zIndex: 10 }}
@@ -188,12 +188,12 @@ export default function ExploreMurals() {
               <Image
                 src={mural.images[0]}
                 alt={mural.title}
-                width={140}
-                height={105}
+                width={200}
+                height={150}
                 className="w-full h-3/4 object-cover"
               />
               <div className="h-1/4 p-2 flex items-center justify-center">
-                <p className="text-center text-xs font-medium text-gray-800 line-clamp-2">{mural.title}</p>
+                <p className="text-center text-base font-medium text-gray-800 line-clamp-2">{mural.title}</p>
               </div>
             </div>
           </motion.div>
